@@ -91,6 +91,7 @@ typedef struct s_ray
     double delta_dist_y;
     double dx;
     double dy;
+    int hit;
     int is_vertical_hit;   // 1 = vertical wall, 2 = horizontal wall
 } t_ray;
 
@@ -165,12 +166,18 @@ void check_valid_character(char c, t_data *data, char **map);
 void player_position(t_data *data, int i, int j);
 void	pars_textures(char *line, t_data *data, int *offset);
 void	one_line_map(t_data *data, int fd, char *line);
-int rgb_to_hex(int r, int g, int b);
 void my_mlx_pixel_put(t_image *img, int x, int y, int color);
+bool xpm_valid(char *path_file);
+void parse_xpm(t_data* data);
+void pars_main(t_data *data, char *filename);
+void check_map_valid(char **map, t_data *data, int i, int j);
 //raycasting
 void grid_lines(t_data *data);
 void draw_block(t_image *img, int x, int y, int cool);
 void draw_all(t_data *data);
+int game_loop(t_data *data);
+int key_press(int keycode, void *param);
+int	sed(void *param);
 //cast rays
 void cast_one_ray(t_data *data, int ray_index);
 void cast_all_rays(t_data *data);

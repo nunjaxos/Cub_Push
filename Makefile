@@ -16,6 +16,7 @@ SRC = main.c \
 	  srcs/parse_textue.c\
 	  srcs/load_textures.c \
 	  srcs/draw_map.c \
+	  srcs/file_main.c \
 
 OBJ = $(SRC:.c=.o)
 
